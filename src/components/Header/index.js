@@ -32,8 +32,8 @@ export const Header = () => {
 
             <Typography sx={{ flexGrow: 1 }}></Typography>
 
-            <Link color="inherit" underline="none" href="/signOn" ml={2}>
-              Sign On
+            <Link color="inherit" underline="none" href="/signUp" ml={2}>
+              Sign Up
             </Link>
 
             <Link color="inherit" underline="none" href="/logIn" ml={2}>
