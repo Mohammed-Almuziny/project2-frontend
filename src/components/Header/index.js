@@ -10,7 +10,26 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
+const IsLogIn = () => {
+  const user = localStorage.getItem("user");
+  return user ? (
+    <h1>{user} </h1>
+  ) : (
+    <>
+      <Link color="inherit" underline="none" href="/signUp" ml={2}>
+        Sign Up
+      </Link>
+
+      <Link color="inherit" underline="none" href="/logIn" ml={2}>
+        Log in
+      </Link>
+    </>
+  );
+};
+
 export const Header = () => {
+  const user = localStorage.getItem("user");
+  console.log(user);
   return (
     <header className="App">
       <Box sx={{ flexGrow: 1 }}>
@@ -32,13 +51,7 @@ export const Header = () => {
 
             <Typography sx={{ flexGrow: 1 }}></Typography>
 
-            <Link color="inherit" underline="none" href="/signUp" ml={2}>
-              Sign Up
-            </Link>
-
-            <Link color="inherit" underline="none" href="/logIn" ml={2}>
-              Log in
-            </Link>
+            <IsLogIn />
           </Toolbar>
         </AppBar>
       </Box>
