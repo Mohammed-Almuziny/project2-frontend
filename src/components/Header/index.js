@@ -29,7 +29,6 @@ const IsLogIn = () => {
 
 export const Header = () => {
   const user = localStorage.getItem("user");
-  console.log(user);
   return (
     <header className="App">
       <Box sx={{ flexGrow: 1 }}>

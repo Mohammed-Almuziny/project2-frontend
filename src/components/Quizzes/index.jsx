@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dotenv from "dotenv";
 import {
@@ -15,9 +16,15 @@ dotenv.config();
 export const Quizzes = () => {
   const [quizzes, setQuizzes] = useState([]);
 
+  const navigate = useNavigate();
+
   const getData = async () => {
     const result = await axios.get(`${process.env.REACT_APP_BASE_URL}/quizzes`);
     setQuizzes(result.data);
+  };
+
+  const handleClick = (id) => {
+    navigate(`/quiz/${id}`);
   };
 
   useEffect(() => {
@@ -36,7 +43,7 @@ export const Quizzes = () => {
                   {" "}
                   <Button
                     onClick={() => {
-                      console.log("click");
+                      handleClick(quiz._id);
                     }}
                   >
                     {" "}
