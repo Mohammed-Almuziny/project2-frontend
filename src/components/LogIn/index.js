@@ -4,7 +4,7 @@ import { TextField, Button } from "@mui/material";
 import axios from "axios";
 import "./style.css";
 
-export const LogIn = () => {
+export const LogIn = ({setUser}) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -25,6 +25,7 @@ export const LogIn = () => {
 
     if (notErr) {
       localStorage.setItem("user", res.data);
+      setUser(res.data);
       navigate("/");
     }
   };

@@ -7,13 +7,22 @@ import {
   Toolbar,
   IconButton,
   Link,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const IsLogIn = () => {
-  const user = localStorage.getItem("user");
+const IsLogIn = ({user, setUser}) => {
+
+  const handleLogOut = () => {
+    localStorage.clear()
+    setUser()
+  }
+  // const user = localStorage.getItem("user");
   return user ? (
+    <>
     <h1>{user} </h1>
+    <Button color="inherit" onClick={handleLogOut}> log out </Button>
+    </>
   ) : (
     <>
       <Link color="inherit" underline="none" href="/signUp" ml={2}>
@@ -27,8 +36,8 @@ const IsLogIn = () => {
   );
 };
 
-export const Header = () => {
-  const user = localStorage.getItem("user");
+export const Header = ({user, setUser}) => {
+  // const user = localStorage.getItem("user");
   return (
     <header className="App">
       <Box sx={{ flexGrow: 1 }}>
@@ -54,7 +63,7 @@ export const Header = () => {
 
             <Typography sx={{ flexGrow: 1 }}></Typography>
 
-            <IsLogIn />
+            <IsLogIn user={user} setUser={setUser}/>
           </Toolbar>
         </AppBar>
       </Box>
