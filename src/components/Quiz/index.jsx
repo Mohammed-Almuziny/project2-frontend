@@ -10,10 +10,11 @@ dotenv.config();
 
 export const Quiz = () => {
   const [quiz, setQuiz] = useState({});
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState(Array(10));
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const user = localStorage.getItem("user");
 
   const getData = async () => {
     const result = await axios.get(
@@ -28,7 +29,16 @@ export const Quiz = () => {
     quiz.questions.map((elm, i) => {
       elm.correctAnswer === answers[i] && score++;
     });
+
+    const body = {
+      userName: user,
+      quizId: quiz._id,
+      answers,
+      score,
+    };
+    console.log(body);
     console.log("your score is " + score);
+    axios.post(`${process.env.REACT_APP_BASE_URL}/users/saveresult`, body);
     navigate("/quizzes");
   };
 
