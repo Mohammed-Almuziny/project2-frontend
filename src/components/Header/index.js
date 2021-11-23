@@ -44,8 +44,12 @@ export const Header = () => {
               <MenuIcon />
             </IconButton>
 
-            <Link color="inherit" underline="none" href="/quizzes">
+            <Link color="inherit" underline="none" href="/quizzes" mr={2}>
               quizzes
+            </Link>
+
+            <Link color="inherit" underline="none" href="/history">
+              your history
             </Link>
 
             <Typography sx={{ flexGrow: 1 }}></Typography>

@@ -32,8 +32,8 @@ export const Quiz = () => {
 
     const body = {
       userName: user,
+      quizTitle: quiz.title,
       quizId: quiz._id,
-      answers,
       score,
     };
     console.log(body);
