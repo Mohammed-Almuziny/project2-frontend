@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "../src/components/Header";
 import { Quizzes } from "./components/Quizzes";
 import { History } from "../src/components/History";
+import {Create} from "./components/Create";
+import { CreateQuiz } from "./components/CreateQuiz";
 import { Quiz } from "./components/Quiz";
 import { SignUp } from "./components/SignUp";
 import { LogIn } from "./components/LogIn";
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/quizzes" element={<Quizzes />} />
         <Route exact path="/quiz/:id" element={<Quiz />} />
         <Route exact path="/history" element={<History />} />
+        <Route exact path="/create" element={<Create />} />
+        <Route exact path="/create/quiz" element={<CreateQuiz />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/LogIn" element={<LogIn user={user} setUser={setUser}/>} />
       </Routes>

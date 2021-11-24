@@ -57,8 +57,12 @@ export const Header = ({user, setUser}) => {
               quizzes
             </Link>
 
-            <Link color="inherit" underline="none" href="/history">
+            <Link color="inherit" underline="none" href="/history" mr={2}>
               your history
+            </Link>
+
+            <Link color="inherit" underline="none" href="/create">
+              ctreate
             </Link>
 
             <Typography sx={{ flexGrow: 1 }}></Typography>
