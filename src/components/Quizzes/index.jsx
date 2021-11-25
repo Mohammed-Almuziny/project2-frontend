@@ -10,6 +10,7 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 dotenv.config();
 
@@ -32,33 +33,31 @@ export const Quizzes = () => {
   }, []);
 
   return quizzes[0] ? (
-    <div>
-      <Container>
-        <Grid container spacing={2}>
-          {quizzes.map((quiz, i) => (
-            <Grid item lg={4} xs={12} key={i}>
-              <Card>
-                <CardContent>{quiz.title}</CardContent>
-                <CardActions>
+    <Container>
+      <Grid container spacing={2}>
+        {quizzes.map((quiz, i) => (
+          <Grid item lg={3} md={4} sm={6} xs={12} key={i}>
+            <Card>
+              <CardContent>{quiz.title}</CardContent>
+              <CardActions>
+                {" "}
+                <Button
+                  onClick={() => {
+                    handleClick(quiz._id);
+                  }}
+                >
                   {" "}
-                  <Button
-                    onClick={() => {
-                      handleClick(quiz._id);
-                    }}
-                  >
-                    {" "}
-                    start{" "}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </div>
+                  start{" "}
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   ) : (
-    <div>
-      <h1>lodaing</h1>
-    </div>
+    <Container sx={{ mx: "auto", width: 200 }} >
+      <CircularProgress />
+    </Container>
   );
 };

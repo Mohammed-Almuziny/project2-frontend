@@ -50,7 +50,7 @@ export const Header = ({ user, setUser }) => {
   // const user = localStorage.getItem("user");
   return (
     <header className="App">
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, pb: 4 }}>
         <AppBar position="static">
           <Toolbar>
             <IconButton

@@ -1,6 +1,5 @@
 import { React, useEffect } from "react";
 import {
-  Paper,
   Box,
   FormGroup,
   FormControl,
@@ -34,8 +33,8 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
     console.log(questions);
   }, [questions]);
   return (
-    <Paper>
-      <Box p={2}>
+   
+      <Box p={2} sx={{bgcolor: 'background.paper'}}>
         <FormGroup onSubmit={() => console.log("sum")}>
           <FormControl>
             <FormLabel> quiz </FormLabel>
@@ -108,6 +107,5 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
           ></TextField>
         </FormGroup>
       </Box>
-    </Paper>
   );
 };
