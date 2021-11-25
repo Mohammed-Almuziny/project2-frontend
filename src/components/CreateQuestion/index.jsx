@@ -17,6 +17,14 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
     if (e.target.id === "question") newArr[i].question = e.target.value;
     if (e.target.id === "answer1")
       newArr[i].answers.splice(0, 1, e.target.value);
+    if (e.target.id === "answer2")
+      newArr[i].answers.splice(1, 1, e.target.value);
+    if (e.target.id === "answer3")
+      newArr[i].answers.splice(2, 1, e.target.value);
+    if (e.target.id === "answer4")
+      newArr[i].answers.splice(3, 1, e.target.value);
+      if (e.target.id === "correctAnswer")
+        newArr[i].correctAnswer = e.target.value;
 
     console.log(newArr);
     setQuestions(newArr);
@@ -63,6 +71,7 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
               placeholder="answer 2"
               margin="normal"
               required
+              onChange={handleChange}
             >
               b
             </TextField>
@@ -72,6 +81,7 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
               placeholder="answer 3"
               margin="normal"
               required
+              onChange={handleChange}
             >
               c
             </TextField>
@@ -81,6 +91,7 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
               placeholder="answer 4"
               margin="normal"
               required
+              onChange={handleChange}
             >
               d
             </TextField>
@@ -93,6 +104,7 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
             margin="normal"
             fullWidth={false}
             required
+            onChange={handleChange}
           ></TextField>
         </FormGroup>
       </Box>
