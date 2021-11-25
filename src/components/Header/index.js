@@ -21,13 +21,9 @@ const IsLogIn = ({ user, setUser }) => {
   return user ? (
     <>
       <h1>{user} </h1>
+
       <Link color="inherit" underline="none" href="/setting" mr={2}>
-        <IconButton
-          color="inherit"
-          onClick={() => {
-            alert("click");
-          }}
-        >
+        <IconButton color="inherit">
           <SettingsApplicationsRoundedIcon />
         </IconButton>
       </Link>
