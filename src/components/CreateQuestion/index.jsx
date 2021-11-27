@@ -22,8 +22,8 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
       newArr[i].answers.splice(2, 1, e.target.value);
     if (e.target.id === "answer4")
       newArr[i].answers.splice(3, 1, e.target.value);
-      if (e.target.id === "correctAnswer")
-        newArr[i].correctAnswer = e.target.value;
+    if (e.target.id === "correctAnswer")
+      newArr[i].correctAnswer = e.target.value;
 
     console.log(newArr);
     setQuestions(newArr);
@@ -33,79 +33,69 @@ export const CreateQuestion = ({ questions, setQuestions, i }) => {
     console.log(questions);
   }, [questions]);
   return (
-   
-      <Box p={2} sx={{bgcolor: 'background.paper'}}>
-        <FormGroup onSubmit={() => console.log("sum")}>
-          <FormControl>
-            <FormLabel> quiz </FormLabel>
-
-            <TextField
-              fullWidth
-              id="question"
-              label="question"
-              placeholder="question"
-              margin="normal"
-              required
-              onChange={handleChange}
-            >
-              {" "}
-              quasion
-            </TextField>
-          </FormControl>
-
-          <FormGroup row sx={{ justifyContent: "space-between" }}>
-            <TextField
-              id="answer1"
-              label="answer 1"
-              placeholder="answer1"
-              margin="normal"
-              required
-              onChange={handleChange}
-            >
-              a
-            </TextField>
-            <TextField
-              id="answer2"
-              label="answer 2"
-              placeholder="answer 2"
-              margin="normal"
-              required
-              onChange={handleChange}
-            >
-              b
-            </TextField>
-            <TextField
-              id="answer3"
-              label="answer 3"
-              placeholder="answer 3"
-              margin="normal"
-              required
-              onChange={handleChange}
-            >
-              c
-            </TextField>
-            <TextField
-              id="answer4"
-              label="answer 4"
-              placeholder="answer 4"
-              margin="normal"
-              required
-              onChange={handleChange}
-            >
-              d
-            </TextField>
-          </FormGroup>
+    <Box p={2} sx={{ bgcolor: "background.paper", mb: 2 }}>
+      <FormGroup onSubmit={() => console.log("sum")}>
+        <FormControl>
+          <FormLabel> question {i + 1} </FormLabel>
 
           <TextField
-            id="correctAnswer"
-            label="correct Answer"
-            placeholder="correct Answer"
+            fullWidth
+            id="question"
+            label="question"
+            placeholder="question"
             margin="normal"
-            fullWidth={false}
             required
             onChange={handleChange}
-          ></TextField>
+          />
+        </FormControl>
+
+        <FormGroup row sx={{ justifyContent: "space-between" }}>
+          <TextField
+            id="answer1"
+            label="answer 1"
+            placeholder="answer1"
+            margin="normal"
+            required
+            onChange={handleChange}
+          />
+          <TextField
+            id="answer2"
+            label="answer 2"
+            placeholder="answer 2"
+            margin="normal"
+            required
+            onChange={handleChange}
+          />
+
+          <TextField
+            id="answer3"
+            label="answer 3"
+            placeholder="answer 3"
+            margin="normal"
+            required
+            onChange={handleChange}
+          />
+
+          <TextField
+            id="answer4"
+            label="answer 4"
+            placeholder="answer 4"
+            margin="normal"
+            required
+            onChange={handleChange}
+          />
         </FormGroup>
-      </Box>
+
+        <TextField
+          id="correctAnswer"
+          label="correct Answer"
+          placeholder="correct Answer"
+          margin="normal"
+          fullWidth={false}
+          required
+          onChange={handleChange}
+        />
+      </FormGroup>
+    </Box>
   );
 };

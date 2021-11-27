@@ -29,8 +29,7 @@ const IsLogIn = ({ user, setUser }) => {
       </Link>
 
       <Button color="inherit" onClick={handleLogOut}>
-        {" "}
-        log out{" "}
+        log out
       </Button>
     </>
   ) : (

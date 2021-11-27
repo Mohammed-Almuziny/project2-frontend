@@ -34,10 +34,17 @@ export const Create = ({ user }) => {
   }, []);
   return quizzes[0] ? (
     <Container>
-      <Link color="inherit" underline="none" href="/create/quiz">
-        create new quize
-      </Link>{" "}
-      <Typography align="center" variant="h2">
+      <Typography variant="h4" align="center" sx={{ mb: 2 }}>
+        <Link
+          color="primary"
+          underline="none"
+          align="center"
+          href="/create/quiz"
+        >
+          create new quize +
+        </Link>
+      </Typography>
+      <Typography align="center" variant="h2" sx={{ mb: 2 }}>
         your Quiz
       </Typography>
       <Grid container spacing={2}>

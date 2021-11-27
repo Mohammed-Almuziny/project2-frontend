@@ -1,9 +1,11 @@
 import { react, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   Container,
   Paper,
   Box,
+  Typography,
   Button,
   FormGroup,
   FormControl,
@@ -20,14 +22,10 @@ export const CreateQuiz = () => {
   const [questionNumber, setQuestionNumber] = useState([]);
   const [title, setTitle] = useState();
   const [category, setCategory] = useState("General Knowledge");
-  const [questions, setQuestions] = useState([
-    // {
-    //   question: "",
-    //   answers: [],
-    //   correctAnswer: "",
-    // },
-  ]);
+  const [questions, setQuestions] = useState([]);
   const [useAwait, setUseAwait] = useState(0);
+
+  const navigate = useNavigate();
 
   const handleAddMore = () => {
     setQuestions([
@@ -43,17 +41,22 @@ export const CreateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(questions);
-    console.table({ title, category });
-    console.table([...questions]);
+    console.log("submit");
 
     const newObj = {
       createrName: localStorage.getItem("user"),
       title,
       category,
       questions,
+      totalQuestions: questions.length,
     };
-    await axios.post(`${process.env.REACT_APP_BASE_URL}/quizzes/create`, newObj);
+    console.log(newObj);
+    await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/quizzes/create`,
+      newObj
+    );
+
+    navigate("/create");
   };
 
   const handleChangeCate = (e) => {
@@ -90,63 +93,73 @@ export const CreateQuiz = () => {
   }, [useAwait]);
 
   return (
-    <div>
-      <Container>
-        <h1>create Quiz</h1>
+    <Container>
+      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+        create Quiz
+      </Typography>
 
-        <form onSubmit={handleSubmit}>
-          <Paper>
-            <Box p={2}>
-              <FormGroup>
-                <FormControl>
-                  <FormLabel> title </FormLabel>
-                  <TextField
-                    id="title"
-                    label="title"
-                    placeholder="title"
-                    margin="normal"
-                    fullWidth
-                    required
-                    onChange={(e) => setTitle(e.target.value)}
-                  >
-                    a
-                  </TextField>
-                </FormControl>
-              </FormGroup>
+      <form onSubmit={handleSubmit}>
+        <Box sx={{ bgcolor: "background.paper", p: 2, mb: 2 }}>
+          <FormGroup>
+            <FormControl>
+              <FormLabel> title </FormLabel>
+              <TextField
+                id="title"
+                label="title"
+                placeholder="title"
+                margin="normal"
+                fullWidth
+                required
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </FormControl>
+          </FormGroup>
 
-              <FormGroup>
-                <FormControl>
-                  <FormLabel>Category</FormLabel>
-                  <Select
-                    id="title"
-                    label="title"
-                    placeholder="title"
-                    value={category}
-                    autoWidth={false}
-                    required
-                    onChange={handleChangeCate}
-                  >
-                    <MenuItem value={"General Knowledge"}>
-                      General Knowledge
-                    </MenuItem>
-                    <MenuItem value={"Film"}>Film</MenuItem>
-                    <MenuItem value={"Thirty"}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
-              </FormGroup>
-            </Box>
-          </Paper>
+          <FormGroup>
+            <FormControl>
+              <FormLabel>Category</FormLabel>
+              <Select
+                id="title"
+                label="title"
+                placeholder="title"
+                value={category}
+                autoWidth={false}
+                required
+                onChange={handleChangeCate}
+              >
+                <MenuItem value={"General Knowledge"}>
+                  General Knowledge
+                </MenuItem>
+                <MenuItem value={"Film"}>Film</MenuItem>
+                <MenuItem value={"Thirty"}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+          </FormGroup>
+        </Box>
 
-          {questionNumber.map((form) => {
-            return form;
-          })}
+        {questionNumber.map((form) => {
+          return form;
+        })}
 
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Button onClick={() => handleAddMore()}>add more</Button>
-            <Button type="submit">submit</Button>
-          </Box>
-        </form>
-      </Container>
-    </div>
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => handleAddMore()}
+            sx={{ mr: 2 }}
+          >
+            add more
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            type="submit"
+            sx={{ ml: 2 }}
+          >
+            submit
+          </Button>
+        </Box>
+      </form>
+    </Container>
   );
 };
