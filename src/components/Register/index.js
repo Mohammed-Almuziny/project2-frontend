@@ -2,9 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Box, FormGroup, TextField, Button } from "@mui/material";
 import axios from "axios";
-import "./style.css";
 
-export const SignUp = () => {
+export const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {

@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Box, FormGroup, TextField, Button } from "@mui/material";
+import { Container, Box,FormGroup, TextField, Button } from "@mui/material";
 import axios from "axios";
-import "./style.css";
 
 export const LogIn = ({ setUser }) => {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export const LogIn = ({ setUser }) => {
     let notErr = true;
 
     let res = await axios
-      .get(`http://localhost:5000/users/${userNameOrEmail}/${password}`)
+      .get(`http://localhost:5000/users/login/${userNameOrEmail}/${password}`)
       .catch((err) => {
         if (err) {
           alert(err.response.data);
@@ -33,27 +32,28 @@ export const LogIn = ({ setUser }) => {
   return (
     <Container maxWidth="md">
       <Box sx={{ bgcolor: "background.paper", p: 2 }}>
+        
         <form onSubmit={handleSubmit}>
-          <FormGroup>
-            <TextField
-              fullWidth
-              id="userName"
-              label="user Name Or Email"
-              placeholder="user Name Or Email"
-              margin="normal"
-              required
-            />
-            <TextField
-              fullWidth
-              type="password"
-              id="password"
-              label="password"
-              placeholder="password"
-              margin="normal"
-              required
-            />
+        <FormGroup> 
+          <TextField
+            fullWidth
+            id="userName"
+            label="user Name Or Email"
+            placeholder="user Name Or Email"
+            margin="normal"
+            required
+          />
+          <TextField
+            fullWidth
+            type="password"
+            id="password"
+            label="password"
+            placeholder="password"
+            margin="normal"
+            required
+          />
 
-            <Button type="submit">sumbit</Button>
+          <Button type="submit">sumbit</Button>
           </FormGroup>
         </form>
       </Box>

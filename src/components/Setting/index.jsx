@@ -28,43 +28,42 @@ export const Setting = ({ user }) => {
 
   return (
     <Container>
-      <Typography> setting</Typography>
+      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+        setting
+      </Typography>
       <form onSubmit={handelDelete}>
-        <Paper>
-          <Box p={2}>
-            <FormGroup>
-              <FormControl>
-                <FormLabel>change password</FormLabel>
-                <TextField
-                  fullWidth
-                  type="password"
-                  id="newPasword"
-                  label="newPasword"
-                  placeholder="new pasword"
-                  margin="normal"
-                  required
-                >
-                  {" "}
-                  new password
-                </TextField>
+        <Box sx={{ bgcolor: "background.paper", p: 2, mb: 2 }}>
+          <FormGroup>
+            <FormControl>
+              <FormLabel>change password</FormLabel>
+              <TextField
+                fullWidth
+                type="password"
+                id="newPasword"
+                label="newPasword"
+                placeholder="new pasword"
+                margin="normal"
+                required
+              />
 
-                <TextField
-                  fullWidth
-                  type="password"
-                  id="checkNewPasword"
-                  label="check new pasword"
-                  placeholder="ckeck new pasword"
-                  margin="normal"
-                  required
-                >
-                  {" "}
-                  new password
-                </TextField>
-                <Button type="submit"> change</Button>
-              </FormControl>
-            </FormGroup>
-          </Box>
-        </Paper>
+              <TextField
+                fullWidth
+                type="password"
+                id="checkNewPasword"
+                label="check new pasword"
+                placeholder="ckeck new pasword"
+                margin="normal"
+                required
+              />
+            </FormControl>
+          </FormGroup>
+
+          <Typography align="center" sx={{ mt: 2 }}>
+            <Button color="primary" variant="contained" type="submit">
+              change
+            </Button>
+          </Typography>
+        </Box>
       </form>
     </Container>
   );

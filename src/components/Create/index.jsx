@@ -44,7 +44,7 @@ export const Create = ({ user }) => {
           create new quize +
         </Link>
       </Typography>
-      <Typography align="center" variant="h2" sx={{ mb: 2 }}>
+      <Typography align="center" variant="h3" sx={{ mb: 2 }}>
         your Quiz
       </Typography>
       <Grid container spacing={2}>

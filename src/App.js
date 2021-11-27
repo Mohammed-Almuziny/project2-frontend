@@ -7,7 +7,7 @@ import { History } from "../src/components/History";
 import { Create } from "./components/Create";
 import { CreateQuiz } from "./components/CreateQuiz";
 import { Quiz } from "./components/Quiz";
-import { SignUp } from "./components/SignUp";
+import { Register } from "./components/Register";
 import { LogIn } from "./components/LogIn";
 import { Setting } from "./components/Setting";
 import "./app.css";
@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/history" element={<History />} />
         <Route exact path="/create" element={<Create user={user} />} />
         <Route exact path="/create/quiz" element={<CreateQuiz />} />
-        <Route exact path="/SignUp" element={<SignUp />} />
+        <Route exact path="/register" element={<Register />} />
         <Route
           exact
           path="/LogIn"

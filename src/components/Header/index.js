@@ -34,8 +34,8 @@ const IsLogIn = ({ user, setUser }) => {
     </>
   ) : (
     <>
-      <Link color="inherit" underline="none" href="/signUp" ml={2}>
-        Sign Up
+      <Link color="inherit" underline="none" href="/register" ml={2}>
+        Register
       </Link>
 
       <Link color="inherit" underline="none" href="/logIn" ml={2}>
