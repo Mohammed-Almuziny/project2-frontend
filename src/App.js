@@ -20,7 +20,7 @@ function App() {
       <Header user={user} setUser={setUser} />
 
       <Routes>
-        <Route exact path="/quizzes" element={<Quizzes />} />
+        <Route exact path="/" element={<Quizzes />} />
         <Route exact path="/quiz/:id" element={<Quiz />} />
         <Route exact path="/history" element={<History />} />
         <Route exact path="/create" element={<Create user={user} />} />

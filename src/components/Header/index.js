@@ -63,8 +63,8 @@ export const Header = ({ user, setUser }) => {
               <MenuIcon />
             </IconButton>
 
-            <Link color="inherit" underline="none" href="/quizzes" mr={2}>
-              quizzes
+            <Link color="inherit" underline="none" href="/" mr={2}>
+              home
             </Link>
 
             <Link color="inherit" underline="none" href="/history" mr={2}>

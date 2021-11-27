@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
+import { Filter } from "../Filter";
+
 dotenv.config();
 
 export const Quizzes = () => {
@@ -34,6 +36,8 @@ export const Quizzes = () => {
 
   return quizzes[0] ? (
     <Container>
+      <Filter setQuizzes={setQuizzes} />
+
       <Grid container spacing={2}>
         {quizzes.map((quiz, i) => (
           <Grid item lg={3} md={4} sm={6} xs={12} key={i}>
@@ -56,7 +60,7 @@ export const Quizzes = () => {
       </Grid>
     </Container>
   ) : (
-    <Container sx={{ mx: "auto", width: 200 }} >
+    <Container sx={{ mx: "auto", width: 200 }}>
       <CircularProgress />
     </Container>
   );
