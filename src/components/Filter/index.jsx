@@ -40,33 +40,35 @@ export const Filter = ({ setQuizzes }) => {
   return (
     <Box sx={{ bgcolor: "background.paper", mb: 2, p: 2 }}>
       <form onSubmit={handleSearch}>
-        <FormGroup>
+        <FormGroup sx={{ mr: 2 }}>
           <FormControl>
-            <FormLabel>search</FormLabel>
-            <TextField
-              fullWidth
-              id="titel"
-              label="titel"
-              placeholder="titel"
-              margin="normal"
-              onChange={handleChange}
-            />
-            <FormLabel>Category</FormLabel>
-            <Select
-              id="category"
-              label="category"
-              placeholder="category"
-              value={category}
-              autoWidth={false}
-              required
-              onChange={handleChangeCate}
-            >
-              <MenuItem value={"all category"}> all category</MenuItem>
-              <MenuItem value={"General Knowledge"}>General Knowledge</MenuItem>
-              <MenuItem value={"film"}>Film</MenuItem>
-              <MenuItem value={"Thirty"}>Thirty</MenuItem>
-            </Select>
-            <Button type="submit">submit</Button>
+            <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+              <TextField
+                id="titel"
+                label="titel"
+                placeholder="titel"
+                margin="normal"
+                onChange={handleChange}
+              />
+              <Select
+                id="category"
+                label="category"
+                placeholder="category"
+                value={category}
+                autoWidth={false}
+                margin="normal"
+                onChange={handleChangeCate}
+                sx={{ mx: 2 }}
+              >
+                <MenuItem value={"all category"}> all category</MenuItem>
+                <MenuItem value={"General Knowledge"}>
+                  General Knowledge
+                </MenuItem>
+                <MenuItem value={"film"}>Film</MenuItem>
+                <MenuItem value={"Thirty"}>Thirty</MenuItem>
+              </Select>
+              <Button type="submit">search</Button>
+            </Box>
           </FormControl>
         </FormGroup>
       </form>

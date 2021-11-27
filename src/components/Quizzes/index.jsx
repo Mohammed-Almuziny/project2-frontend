@@ -4,10 +4,12 @@ import axios from "axios";
 import dotenv from "dotenv";
 import {
   Container,
+  Box,
   Grid,
   Card,
   CardContent,
   CardActions,
+  Typography,
   Button,
 } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -41,8 +43,21 @@ export const Quizzes = () => {
       <Grid container spacing={2}>
         {quizzes.map((quiz, i) => (
           <Grid item lg={3} md={4} sm={6} xs={12} key={i}>
-            <Card>
-              <CardContent>{quiz.title}</CardContent>
+            <Card sx={{ height: 270, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <CardContent>
+                <Typography variant="h6">Title: {quiz.title}</Typography>
+              </CardContent>
+              <CardContent>
+                <Typography variant="body1">
+                  category: {quiz.category}
+                </Typography>
+              </CardContent>
+
+              <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+                <CardContent>creater: {quiz.createrName}</CardContent>
+                <CardContent>totalQuestions: {quiz.totalQuestions}</CardContent>
+              </Box>
+
               <CardActions>
                 {" "}
                 <Button
