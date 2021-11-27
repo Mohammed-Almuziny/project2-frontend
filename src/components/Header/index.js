@@ -52,15 +52,9 @@ export const Header = ({ user, setUser }) => {
       <Box sx={{ flexGrow: 1, pb: 4 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
+            <Typography variant="h6" mr={2}>
+              QUIZSITE
+            </Typography>
 
             <Link color="inherit" underline="none" href="/" mr={2}>
               home

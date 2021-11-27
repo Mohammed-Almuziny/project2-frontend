@@ -60,12 +60,13 @@ export const Filter = ({ setQuizzes }) => {
                 onChange={handleChangeCate}
                 sx={{ mx: 2 }}
               >
-                <MenuItem value={"all category"}> all category</MenuItem>
                 <MenuItem value={"General Knowledge"}>
                   General Knowledge
                 </MenuItem>
-                <MenuItem value={"film"}>Film</MenuItem>
-                <MenuItem value={"Thirty"}>Thirty</MenuItem>
+                <MenuItem value={"Film"}>Film</MenuItem>
+                <MenuItem value={"Television"}>Television</MenuItem>
+                <MenuItem value={"Sports"}>Sports</MenuItem>
+                <MenuItem value={"Video Games"}>Video Games</MenuItem>
               </Select>
               <Button type="submit">search</Button>
             </Box>

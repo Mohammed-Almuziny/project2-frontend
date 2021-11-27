@@ -131,7 +131,9 @@ export const CreateQuiz = () => {
                   General Knowledge
                 </MenuItem>
                 <MenuItem value={"Film"}>Film</MenuItem>
-                <MenuItem value={"Thirty"}>Thirty</MenuItem>
+                <MenuItem value={"Television"}>Television</MenuItem>
+                <MenuItem value={"Sports"}>Sports</MenuItem>
+                <MenuItem value={"Video Games"}>Video Games</MenuItem>
               </Select>
             </FormControl>
           </FormGroup>
