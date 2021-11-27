@@ -1,6 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Box, FormGroup, TextField, Button } from "@mui/material";
+import {
+  Container,
+  Box,
+  FormGroup,
+  TextField,
+  Typography,
+  Button,
+} from "@mui/material";
 import axios from "axios";
 
 export const Register = () => {
@@ -23,6 +30,9 @@ export const Register = () => {
 
   return (
     <Container maxWidth="md">
+      <Typography variant="h3" align="center" mb={2}>
+        register
+      </Typography>
       <Box sx={{ bgcolor: "background.paper", p: 2 }}>
         <form onSubmit={handleSubmit}>
           <FormGroup>
@@ -52,9 +62,12 @@ export const Register = () => {
               margin="normal"
               required
             />
-
-            <Button type="submit">sumbit</Button>
           </FormGroup>
+          <Typography align="center" my={2}>
+            <Button color="primary" variant="contained" type="submit">
+              register
+            </Button>
+          </Typography>
         </form>
       </Box>
     </Container>

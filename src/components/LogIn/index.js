@@ -1,6 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Box,FormGroup, TextField, Button } from "@mui/material";
+import {
+  Container,
+  Box,
+  FormGroup,
+  TextField,
+  Typography,
+  Button,
+} from "@mui/material";
 import axios from "axios";
 
 export const LogIn = ({ setUser }) => {
@@ -31,30 +38,35 @@ export const LogIn = ({ setUser }) => {
 
   return (
     <Container maxWidth="md">
+      <Typography variant="h3" align="center" mb={2}>
+        log in
+      </Typography>
       <Box sx={{ bgcolor: "background.paper", p: 2 }}>
-        
         <form onSubmit={handleSubmit}>
-        <FormGroup> 
-          <TextField
-            fullWidth
-            id="userName"
-            label="user Name Or Email"
-            placeholder="user Name Or Email"
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            type="password"
-            id="password"
-            label="password"
-            placeholder="password"
-            margin="normal"
-            required
-          />
-
-          <Button type="submit">sumbit</Button>
+          <FormGroup>
+            <TextField
+              fullWidth
+              id="userName"
+              label="user Name Or Email"
+              placeholder="user Name Or Email"
+              margin="normal"
+              required
+            />
+            <TextField
+              fullWidth
+              type="password"
+              id="password"
+              label="password"
+              placeholder="password"
+              margin="normal"
+              required
+            />
           </FormGroup>
+          <Typography align="center" my={2}>
+            <Button color="primary" variant="contained" type="submit">
+              log in
+            </Button>
+          </Typography>
         </form>
       </Box>
     </Container>
