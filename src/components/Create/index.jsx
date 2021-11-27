@@ -44,7 +44,8 @@ export const Create = ({ user }) => {
         {quizzes.map((quiz, i) => (
           <Grid item lg={3} md={4} sm={6} xs={12} key={i}>
             <Card>
-              <CardContent>{quiz.title}</CardContent>
+              <CardContent>title: {quiz.title}</CardContent>
+              <CardContent>total Questions: {quiz.totalQuestions}</CardContent>
               <CardActions>
                 {" "}
                 <Button

@@ -8,9 +8,10 @@ import {
   Card,
   CardContent,
   CardActions,
+  Typography,
   Button,
 } from "@mui/material";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const History = () => {
   const [quizzes, setQuizzes] = useState([]);
@@ -34,22 +35,23 @@ export const History = () => {
 
   return quizzes[0] ? (
     <Container>
-      <h1>history</h1>
+      {/* <Typography variant="h3" sx={{ mx: "auto", width: 200 }}>history</Typography> */}
+
       <Grid container spacing={2}>
         {quizzes.map((quiz, i) => (
           <Grid item lg={4} xs={12} key={i}>
             <Card>
               <CardContent>{quiz.quizTitle}</CardContent>
-              <CardContent>{quiz.score}</CardContent>
+              <CardContent>
+                result: {quiz.score} / {quiz.totalQuestions}
+              </CardContent>
               <CardActions>
-                {" "}
                 <Button
                   onClick={() => {
                     handleClick(quiz.quizId);
                   }}
                 >
-                  {" "}
-                  restart{" "}
+                  try again
                 </Button>
               </CardActions>
             </Card>
